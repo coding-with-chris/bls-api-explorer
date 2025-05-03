@@ -194,7 +194,6 @@ def display_api_query_builder(series_picklist, minimum_year, maximum_year):
             
             user_registrationkey = st.text_input("Enter Your BLS API Key", 
                                                  value=st.session_state.user_registrationkey, 
-                                                 type="password", 
                                                  help="Register for an API key at https://data.bls.gov/registrationEngine/.")
 
             # Update session state if the user changed the input
