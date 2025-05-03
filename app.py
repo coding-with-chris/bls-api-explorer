@@ -262,7 +262,7 @@ def display_output(data, log, survey):
         st.write("")
 
         retrieval_date = datetime.today().strftime('%B %d, %Y')
-        st.markdown(f"Data retrieved from the BLS API on: {retrieval_date}\nBLS.gov cannot vouch for the data or analyses derived from these data after retrieval."
+        st.markdown(f"Data retrieved from the BLS API on: {retrieval_date}\nBLS.gov cannot vouch for the data or analyses derived from these data after retrieval.")
         st.write("")
 
         # Add CSV download button if data is a DataFrame        
