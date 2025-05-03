@@ -60,8 +60,9 @@ def create_sidebar():
     """
     # Display disclaimer about unofficial status
     st.sidebar.markdown("""
-                        <p style="color:red;"> 📢 <b>DISCLAIMER:</b> <br>This app is not an offical BLS product. 
-                        BLS.gov cannot vouch for the data or analyses derived from these data after the data have been retrieved from BLS.gov.</p>
+                        <p style="color:red;"> 📢 <b>DISCLAIMER:</b> <br> This application is not affiliated with or endorsed 
+                        by the U.S. Bureau of Labor Statistics (BLS). It uses public data made available via the BLS Public Data API. 
+                        BLS.gov cannot vouch for the accuracy or timeliness of data or analyses presented after retrieval.</p>
                         """, unsafe_allow_html=True)
 
     # Getting started section with API key registration link
@@ -249,16 +250,21 @@ def display_output(data, log, survey):
             border-left: 5px solid #28a745;
             border-radius: 5px;
             font-size: 16px;">
-            SUCCESS! No log messages returned from the API.
+            SUCCESS! 
+            No log messages returned from the API.
         </div>
-        """, unsafe_allow_html=True)    
-                
+        """, unsafe_allow_html=True)                    
         st.write("")
 
         # Display the data table        
         st.markdown("<h5 style='color: #006F96;'>Output:</h5>", unsafe_allow_html=True)
         st.write(data)   
-        
+        st.write("")
+
+        retrieval_date = datetime.today().strftime('%B %d, %Y')
+        st.markdown(f"Data retrieved from the BLS API on: {retrieval_date}\nBLS.gov cannot vouch for the data or analyses derived from these data after retrieval."
+        st.write("")
+
         # Add CSV download button if data is a DataFrame        
         if isinstance(data, pd.DataFrame):
             csv_data = data.to_csv(index=False)
