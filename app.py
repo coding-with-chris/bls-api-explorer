@@ -298,7 +298,10 @@ def display_code(data, seriesids, startyear, endyear, registrationkey, survey_na
     
         # Create tabs for different code examples    
         tab1, tab2, tab3 = st.tabs(["Data", "Metadata", "License"])
-    
+
+        # Only show API key if it is the users.
+        api_key_to_show = "your_api_key" if registrationkey == st.secrets.get("bls_api_key") else registrationkey
+
         # Code example for retrieving data    
         with tab1:
             python_script = f"""
@@ -311,7 +314,7 @@ def display_code(data, seriesids, startyear, endyear, registrationkey, survey_na
             data, log = get_bls_data(seriesids={seriesids}, 
                                      startyear={startyear}, 
                                      endyear={endyear}, 
-                                     registrationkey='{registrationkey}', 
+                                     registrationkey='{api_key_to_show}', 
                                      return_logs=True)
         
             """        
@@ -336,7 +339,7 @@ def display_code(data, seriesids, startyear, endyear, registrationkey, survey_na
             seriesid_metadata = get_seriesid_metadata('{survey_name}')        
             
             # Returns a list of popular BLS Series IDs for a given survey.
-            popular_seriesids = get_popular_seriesids('{survey_name}', '{registrationkey}')  
+            popular_seriesids = get_popular_seriesids('{survey_name}', '{api_key_to_show}')  
             
             """        
             st.code(python_script, language="python")       
