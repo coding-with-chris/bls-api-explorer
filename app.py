@@ -87,9 +87,7 @@ def create_sidebar():
         Happy Data Exploration and Coding!
                         
         Connect with me:
-        [Github](https://github.com/coding-with-chris/py-bls-api) | 
-        [LinkedIn](https://www.linkedin.com/in/connect-with-chris-morris) 
-    
+        [Github](https://github.com/coding-with-chris/py-bls-api) 
         """)
 
 
